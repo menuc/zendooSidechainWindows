@@ -1,0 +1,2 @@
+# zendooSidechainWindows
+基于windows的zen侧链发行指南
