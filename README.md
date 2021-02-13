@@ -108,3 +108,15 @@ cd C:\zen\Zen_Win_binaries_v2.1.0-beta4
 zen-cli stop
 停止同步后将最新下载的horizen_masternode_sidechains_blockchain_2021-02-13_07-00-02_UTC.tar.gz文件解压缩到C:\Users\{用户名}\AppData\Roaming\zen\testnet3 目录，再次运行zend，等待测试网数据同步完成。
 
+********系统返回:
+Messages:
+- : You need to rebuild the database using -reindex to change -txindex.
+Please restart with -reindex to recover.
+
+Init message: Loading block index...
+
+['zen-cli.exe stop' to exit] [Set 'showmetrics=0' to hide]
+使用-reindex参数重新运行zend
+zend -reindex
+等待系统同步完成，大约需要几小时。
+
