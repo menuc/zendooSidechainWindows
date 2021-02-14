@@ -4,12 +4,13 @@
 本文是基于windows的zen侧链发行指南，本文参考了：xxx，如果你想在linux下发行侧链，请参考原者的项目，谢谢。
 
 首先，下载相关软件：
+```
 python-3.9.1-amd64.exe
 jdk-8u271-windows-x64.exe
 apache-maven-3.6.3-bin.zip
 Git-2.30.0-64-bit.exe
 7z1900-x64.exe
-
+```
 安装全部exe软件，采用默认的设置。
 
 在c:的根目录新建zen文件夹，复制apache-maven-3.6.3-bin.zip到zen目录（如果你的c盘空间紧张，请更换到其他驱动器）
