@@ -142,7 +142,7 @@ sceaZen.bat
 zen-cli -regtest getbalance
 ```
 ********系统返回:
-1360.24995784
+1335.24997893
 ```
 查看侧链余额：
 curl -X POST "http://127.0.0.1:9085/wallet/balance" -H "accept: application/json" -H "Content-Type: application/json"
@@ -160,20 +160,17 @@ cation/json"
 
 zen-cli -regtest sc_send “publicKey” “数量” “scid”
 type keys.txt|findstr GKPUBLIC
-```
-********系统返回:
-GKPUBLIC = 45858a5c92104d04c8fe31aa0da2bb1f4297f41a72b85be4bc064ee667b71f7e
-```
 type keys.txt|findstr SCID
 ```
 ********系统返回:
-SCID=20f02f68541e075b473cd37483d691f4a65ece86e1dce310b5367692db6bbc84
+GKPUBLIC = 83bc9e525cfe39dd840af977c93666052039c3b693a385f31235cccc695be534
+SCID=39435209f33ab13af5ba1788934543ca8e7d4f169e65f8d46c7d2d3b5ff04c10
 ```
 
-zen-cli -regtest sc_send "45858a5c92104d04c8fe31aa0da2bb1f4297f41a72b85be4bc064ee667b71f7e" 20 "20f02f68541e075b473cd37483d691f4a65ece86e1dce310b5367692db6bbc84"
+zen-cli -regtest sc_send "83bc9e525cfe39dd840af977c93666052039c3b693a385f31235cccc695be534" 50 "39435209f33ab13af5ba1788934543ca8e7d4f169e65f8d46c7d2d3b5ff04c10"
 ```
 ********系统返回:
-ce117507e5e980cf36eca6f22332a32cba72f261d8296302ddf7734d7e563a75
+f9b0f4ff182a8c4f7462809bb54ccd7ff5690be991ec045a16a51061c4a85073
 ```
 
 在主链中生成一个新区块
@@ -181,40 +178,35 @@ zen-cli -regtest generate 1
 ```
 ********系统返回:
 [
-  "0090cf9aaa58140a619b74c07d087692ef0ed6cc8f9f016f11a1124925304cad"
+  "04a94094916bb2e3a8104cb1b07e31b2c3e71cc67e9823e5c33f3c22f4e86e50"
 ]
 ```
 
 验证区块信息
 
-zen-cli -regtest getblock "0090cf9aaa58140a619b74c07d087692ef0ed6cc8f9f016f11a1124925304cad"
+zen-cli -regtest getblock "04a94094916bb2e3a8104cb1b07e31b2c3e71cc67e9823e5c33f3c22f4e86e50"
 ```
 ********系统返回:
-[
-  "0090cf9aaa58140a619b74c07d087692ef0ed6cc8f9f016f11a1124925304cad"
-]
-
-C:\zen>zen-cli -regtest getblock "0090cf9aaa58140a619b74c07d087692ef0ed6cc8f9f016f11a1124925304cad"
 {
-  "hash": "0090cf9aaa58140a619b74c07d087692ef0ed6cc8f9f016f11a1124925304cad",
+  "hash": "04a94094916bb2e3a8104cb1b07e31b2c3e71cc67e9823e5c33f3c22f4e86e50",
   "confirmations": 1,
-  "size": 812,
-  "height": 227,
+  "size": 1256,
+  "height": 222,
   "version": 3,
-  "merkleroot": "c5b8269d99aafa8821e0da29fb74099b69a281ea79eaf47b924f2aa5311c54e6",
-  "scTxsCommitment": "f747488f84d4f3c7c2d1c3636750f2660363b97c2aea44de20883ac451fb0afa",
+  "merkleroot": "9e2a02e45483a7dfd0496d9d02bc66d212ef78a85b7666237f3bcb022969048a",
+  "scTxsCommitment": "294b07476cd1dc6c9e84ed8d480b41263e068aef854d24e611d48e3b2c4e09f0",
   "tx": [
-    "d122fe2dcf29d5233038f1970e3abd691939be3c4318c6602c81c76fdd99e77d",
-    "ce117507e5e980cf36eca6f22332a32cba72f261d8296302ddf7734d7e563a75"
+    "a3a54e3c876faedb7ab0dc6c595e088638a098fb7a8c8509677ebf3b52f504ff",
+    "f9b0f4ff182a8c4f7462809bb54ccd7ff5690be991ec045a16a51061c4a85073"
   ],
   "cert": [
   ],
-  "time": 1613268499,
-  "nonce": "0000d5ab7f6ad4b80057d39a39bfad8ebc6cef2e53b81471c86a5668e4760010",
-  "solution": "049c832d91062d2d7e33fb995dbb27bf75f60c4d9cbac20cb5dcf013650717c24b5ed180",
+  "time": 1613319713,
+  "nonce": "00003efce4f776520904dac948995aa803269042cf6327f2fa3f6884688c000d",
+  "solution": "07ff493ee6bec631c614658c7469762ab9b90871d4977202ca9de8151587b381c5a6b791",
   "bits": "200f0f02",
   "difficulty": 1.000013172800801,
-  "chainwork": "0000000000000000000000000000000000000000000000000000000000000f24",
+  "chainwork": "0000000000000000000000000000000000000000000000000000000000000ecf",
   "anchor": "59d2cde5e65c1414c32ba54f0fe4bdb3d67618125286e6a191317917c812c6d7",
   "valuePools": [
     {
@@ -226,8 +218,173 @@ C:\zen>zen-cli -regtest getblock "0090cf9aaa58140a619b74c07d087692ef0ed6cc8f9f01
       "valueDeltaZat": 0
     }
   ],
-  "previousblockhash": "0bd9750a55257f8c7039d5f60746930af6102fc8c31225791f080a93ad778698"
+  "previousblockhash": "0177865c0e08395afcda364369fef2eba8658840f5b49e11e9464bd0badf2b33"
 }
 ```
+curl -X POST "http://127.0.0.1:9085/block/forgingInfo" -H "accept: application/json" -H "Content-Type: application/json"
+
+```
+********系统返回:
+{
+  "result" : {
+    "consensusSecondsInSlot" : 120,
+    "consensusSlotsInEpoch" : 720,
+    "bestEpochNumber" : 1,
+    "bestSlotNumber" : 720
+  }
+}
+```
+生成下一个开始下一个纪元
+curl -X POST "http://127.0.0.1:9085/block/generate" -H "accept: application/json"  -H "Content-Type: application/json" -d "{\"epochNumber\":2,\"slotNumber\":1}"
+```
+********系统返回:
+{
+  "result" : {
+    "blockId" : "3d5d38cf2f22b0286f7ce20815632e73f7999eb26aba763f0201115aab4fd6b6"
+  }
+```
+验证侧链余额
+curl -X POST "http://127.0.0.1:9085/wallet/balance" -H "accept: application/json"
+```
+********系统返回:
+{
+  "result" : {
+    "balance" : 600000000
+  }
+}
+```
+侧链中进行转移,创建一个新地址
+curl -X POST "http://127.0.0.1:9085/wallet/createPrivateKey25519" -H "accept: application/json"
+```
+********系统返回:
+{
+  "result" : {
+    "proposition" : {
+      "publicKey" : "a61b1bd64ae1e75964eb1ea1e24fb234411844292f3862c6c8091334e9639fe7"
+    }
+  }
+}
+```
+通过调用/transaction/sendCoinsToAddressAPI完成发送
+curl -X POST "http://127.0.0.1:9085/transaction/sendCoinsToAddress" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"outputs\":[{\"publicKey\":\""83bc9e525cfe39dd840af977c93666052039c3b693a385f31235cccc695be534 "\",\"value\":90000000}],\"fee\":0}"
+```
+********系统返回:
+{
+  "result" : {
+    "transactionId" : "f343b4ed982a599657afe64ffb0cf482472ce84a554f5c7380d0685e1125e14e"
+  }
+}
+```
+返回所有钱包余额：
+curl -X POST "http://127.0.0.1:9085/wallet/allBoxes" -H "accept: application/json" -H "Content-Type: application/json"
+```
+********系统返回:
+{
+  "result" : {
+    "boxes" : [ {
+      "nonce" : -983576366876204082,
+      "id" : "5994084524ab3d5dfc6f005579a586c1f9d4b8b6be5628e9434630939db575fe",
+      "typeId" : 3,
+      "blockSignProposition" : {
+        "publicKey" : "d5b0be8cf2f6f4ac1ebf2ecdc95b9cd59cfc3c7183b87981433879fd1462a000"
+      },
+      "vrfPubKey" : {
+        "valid" : true,
+        "publicKey" : "09e4f5e989f0f5a86e7bed8892689f8afd127f4deec8d33f90a70ea4f1dfa9f137f851e0b5bc06ead6b2112c26ebc776091673b57d56f98410c6286ef08a7ae02f90ab7613d8e8ad94506526602f14a75220f9dc24d33ec92bbc7e9aeaf50000585973242db72deeb26c5a5628b9d6d04f4936d67410c846a95deaab5093774df176d6422e6466809010224fba10799641a16a740284949a22bac3ca4b861f274391ab6c5926975b807dcf00071670a66ace90c2d53cd9ee931ccfbe3b92000000"
+      },
+      "proposition" : {
+        "publicKey" : "d5b0be8cf2f6f4ac1ebf2ecdc95b9cd59cfc3c7183b87981433879fd1462a000"
+      },
+      "value" : 100000000
+    }, {
+      "nonce" : 7949309364074298765,
+      "id" : "d6f234a7cce52b1d3e5daee4b7bdd54513f09e956ed74ae3d5cfcf6e7aecfa79",
+      "typeId" : 1,
+      "proposition" : {
+        "publicKey" : "d5b0be8cf2f6f4ac1ebf2ecdc95b9cd59cfc3c7183b87981433879fd1462a000"
+      },
+      "value" : 90000000
+    } ]
+  }
+}
+```
+向后转移：从侧链到主链
+zen-cli -regtest getnewaddress
+```
+********系统返回:
+ztnYjrMciojb5HV8f5MPjg4Zw9DFY326BT9
+```
+curl -X POST "http://127.0.0.1:9085/transaction/withdrawCoins" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"outputs\":[{\"publicKey\":\"ztnYjrMciojb5HV8f5MPjg4Zw9DFY326BT9\",\"value\":1000000000}],\"fee\":0}"
+```
+********系统返回:
+
+{
+  "result" : {
+    "transactionId" : "3199edf22976083e1102c5486f6244c26f069512f0ed3ac6f420aab9aa2c81a5"
+  }
+}
+```
+
+生成区块：
+curl -X POST "http://127.0.0.1:9085/block/generate" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"epochNumber\":2,\"slotNumber\":3}"
+
+```
+********系统返回:
+{
+  "result" : {
+    "blockId" : "6367fca4f291a9aa69799d241dc04ef45d72231d1349bdd3373a894835743ad2"
+  }
+}
+```
+zen-cli -regtest generate 1
+
+获得响应:
+[
+  "0b5d72770e69dce926263863a839f8711fed2d45edbdabcbbd6797d0eeecc834"
+]
+
+产生更多区块
+zen-cli -regtest generate 1000
+
+查看余额
+zen-cli -regtest listaddressgroupings
+```
+********系统返回:
+[
+  [
+    [
+      "ztnYjrMciojb5HV8f5MPjg4Zw9DFY326BT9",
+      7.50000891
+    ],
+    [
+      "ztZUY391qcU4SvLY8CPDFmHLW2p91AZaKgY",
+      1245.24996711
+    ]
+  ],
+  [
+    [
+      "ztqKkULoPPoMWmKNuL8JPjBdbTofXF6i64P",
+      0.00000000
+    ]
+  ],
+  [
+    [
+      "ztqsWqPSmphGXf6kSMoc5z6Jfm1CySNkUqd",
+      0.00000000,
+      ""
+    ]
+  ]
+]
+
+```
+
+
+
+
+
+
+
+
+
 
 
