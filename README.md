@@ -3,7 +3,7 @@
 
 系统环境：win10 64 in vmware15
 
-本文是基于windows的zen侧链发行指南，本文参考了：xxx，如果你想在linux下发行侧链，请参考原者的项目，谢谢。
+本文是基于windows的zen侧链发行指南，本文参考了项目：https://github.com/chainaccelerator/eazen，如果你想在linux下发行侧链，请参考原者的项目，谢谢。
 
 首先，下载相关安装软件：链接：https://pan.baidu.com/s/1i5QQ_seXNU_WRAGVEA97SQ 
 提取码：aofj 
