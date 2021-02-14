@@ -131,3 +131,103 @@ Init message: Loading block index...
 使用-reindex参数重新运行zend
 zend -reindex
 等待系统同步完成，大约需要几小时。
+同步完成后，点击Git CMD图标，运行以下命令：
+cd /zen
+sceaZen.bat
+这个批处理文件将自动生成配置文件参数，并启动侧链，如果没有问题，你将看到如下界面：
+
+现在，我们已经声明了侧链，并锁定10个zen到侧链，下面我们来进行转账操作：
+
+查看主链余额：
+zen-cli -regtest getbalance
+```
+********系统返回:
+1360.24995784
+```
+查看侧链余额：
+curl -X POST "http://127.0.0.1:9085/wallet/balance" -H "accept: application/json" -H "Content-Type: application/json"
+```
+********系统返回:
+cation/json"
+{
+  "result" : {
+    "balance" : 1000000000
+  }
+}
+```
+
+发送到侧链
+
+zen-cli -regtest sc_send “publicKey” “数量” “scid”
+type keys.txt|findstr GKPUBLIC
+```
+********系统返回:
+GKPUBLIC = 45858a5c92104d04c8fe31aa0da2bb1f4297f41a72b85be4bc064ee667b71f7e
+```
+type keys.txt|findstr SCID
+```
+********系统返回:
+SCID=20f02f68541e075b473cd37483d691f4a65ece86e1dce310b5367692db6bbc84
+```
+
+zen-cli -regtest sc_send "45858a5c92104d04c8fe31aa0da2bb1f4297f41a72b85be4bc064ee667b71f7e" 20 "20f02f68541e075b473cd37483d691f4a65ece86e1dce310b5367692db6bbc84"
+```
+********系统返回:
+ce117507e5e980cf36eca6f22332a32cba72f261d8296302ddf7734d7e563a75
+```
+
+在主链中生成一个新区块
+zen-cli -regtest generate 1
+```
+********系统返回:
+[
+  "0090cf9aaa58140a619b74c07d087692ef0ed6cc8f9f016f11a1124925304cad"
+]
+```
+
+验证区块信息
+
+zen-cli -regtest getblock "0090cf9aaa58140a619b74c07d087692ef0ed6cc8f9f016f11a1124925304cad"
+```
+********系统返回:
+[
+  "0090cf9aaa58140a619b74c07d087692ef0ed6cc8f9f016f11a1124925304cad"
+]
+
+C:\zen>zen-cli -regtest getblock "0090cf9aaa58140a619b74c07d087692ef0ed6cc8f9f016f11a1124925304cad"
+{
+  "hash": "0090cf9aaa58140a619b74c07d087692ef0ed6cc8f9f016f11a1124925304cad",
+  "confirmations": 1,
+  "size": 812,
+  "height": 227,
+  "version": 3,
+  "merkleroot": "c5b8269d99aafa8821e0da29fb74099b69a281ea79eaf47b924f2aa5311c54e6",
+  "scTxsCommitment": "f747488f84d4f3c7c2d1c3636750f2660363b97c2aea44de20883ac451fb0afa",
+  "tx": [
+    "d122fe2dcf29d5233038f1970e3abd691939be3c4318c6602c81c76fdd99e77d",
+    "ce117507e5e980cf36eca6f22332a32cba72f261d8296302ddf7734d7e563a75"
+  ],
+  "cert": [
+  ],
+  "time": 1613268499,
+  "nonce": "0000d5ab7f6ad4b80057d39a39bfad8ebc6cef2e53b81471c86a5668e4760010",
+  "solution": "049c832d91062d2d7e33fb995dbb27bf75f60c4d9cbac20cb5dcf013650717c24b5ed180",
+  "bits": "200f0f02",
+  "difficulty": 1.000013172800801,
+  "chainwork": "0000000000000000000000000000000000000000000000000000000000000f24",
+  "anchor": "59d2cde5e65c1414c32ba54f0fe4bdb3d67618125286e6a191317917c812c6d7",
+  "valuePools": [
+    {
+      "id": "sprout",
+      "monitored": true,
+      "chainValue": 0.00000000,
+      "chainValueZat": 0,
+      "valueDelta": 0.00000000,
+      "valueDeltaZat": 0
+    }
+  ],
+  "previousblockhash": "0bd9750a55257f8c7039d5f60746930af6102fc8c31225791f080a93ad778698"
+}
+```
+
+
